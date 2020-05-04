@@ -73,6 +73,12 @@ directly. Next,
 This will generate `libftfp.so`, which you can then link against in your
 application.
 
+To compile to SGX target, run
+
+    $ make SGX=1
+
+instead. This will generate a static library `libftfp_sgx.a`.
+
 If you'd like to run the full test suite on your local machine (which iterates
 through every possible configuration of the library), run
 
