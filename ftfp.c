@@ -451,6 +451,7 @@ int64_t fix_floor64(fixed op1) {
   return FIX_FLOOR64(op1);
 }
 
+#ifndef SGX
 void fix_print(fixed f) {
   char buf[FIX_PRINT_BUFFER_SIZE];
   fix_sprint(buf, f);
@@ -460,3 +461,4 @@ void fix_println(fixed f) {
   fix_print(f);
   printf("\n");
 }
+#endif

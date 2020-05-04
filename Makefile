@@ -27,7 +27,12 @@ gen_test_src     := generate_test_helper.c
 gen_test_obj     := $(gen_test_src:.c=.o)
 gen_test_pre     := $(gen_test_src:.c=.pre)
 
+include sgx.mk
+
 .PHONY: all clean depend alltest
+
+.DEFAULT_GOAL := all
+
 all: $(libs)
 
 base.h : generate_base.py
@@ -61,7 +66,7 @@ pre: $(test_ftfp_pre) $(ftfp_pre) $(perf_ftfp_pre) $(gen_test_pre)
 	$(CC) -c -E -o $@ $(CFLAGS) $<
 
 clean:
-	$(RM) -r $(progs) $(libs) $(ftfp_obj) $(test_ftfp_obj) $(test_ftfp_pre) ${perf_ftfp_obj} ${perf_ftfp_pre} ${gen_test_obj} ${gen_test_pre} ${autogens}
+	$(RM) -r $(progs) $(libs) $(ftfp_obj) $(test_ftfp_obj) $(test_ftfp_pre) ${perf_ftfp_obj} ${perf_ftfp_pre} ${gen_test_obj} ${gen_test_pre} ${autogens} $(libs_sgx)
 
 run_tests:
 	set -x ; \

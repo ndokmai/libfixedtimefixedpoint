@@ -9,4 +9,5 @@ base.py
 
 *.asm
 *.so
+*.a
 perf_test

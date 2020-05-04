@@ -103,11 +103,15 @@ int64_t fix_floor64(fixed op1);
 
 /* Prints the fixed into a buffer in base 10. The buffer must be at least FIX_PRINT_BUFFER_SIZE
  * characters long. */
+#ifndef SGX
 void fix_sprint(char* buffer, fixed f);
 void fix_sprint_nospecial(char* buffer, fixed f);
+#endif
 
 /* Prints a fixed to STDOUT. */
+#ifndef SGX
 void fix_print(fixed f);
 void fix_println(fixed f);
+#endif
 
 #endif
